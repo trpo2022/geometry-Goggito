@@ -24,6 +24,17 @@ int main()
 		}
 	}
 	
+	for (counter = 0; counter < storage_size; counter++){
+		std::size_t found = storage[counter].find("triangle");
+		if (found != std::string::npos){
+			Triangle();
+		}
+		found = storage[counter].find("circle");
+		if (found != std::string::npos){
+			Circle();
+		}
+	} 
+	
 	in.close();
 	std::cout << "End of programm" << std::endl; 
 	return 0;
