@@ -13,14 +13,19 @@ using namespace std;
 int main()
 {
     int counter = 0;
-    int storage_size = 100;
+    const int storage_size = 100;
+    const int figure_limit = 10;
+    std::string line, file_name;
     std::string storage[storage_size];
-    std::string line;
-    std::string file_name;
+    Circle Circle_mass[figure_limit];
+    Triangle Triangle_mass[figure_limit];
+
+    // Open file
     std::cout << "\n The program accepts format files as input .wkt!";
-    std::cout << "\n Enter the file name: ";
-    std::cin  >> file_name;
-    std::ifstream in (file_name);
+    std::cout << "\n Enter the full file name: ";
+    std::cin >> file_name;
+
+    std::ifstream in(file_name);
     if (in.is_open()) {
         while (getline(in, line)) {
             storage[counter] = line;
@@ -30,33 +35,43 @@ int main()
         printf(" !Open File Error\n !File not found");
     }
 
-    int verif_counter = 0;
+    // Search for shapes in a string
+    int check = 0;
     int order_counter = 0;
+    int Circle_counter = 0;
+    int Triangle_counter = 0;
     for (int counter_f = 0; counter_f < counter; counter_f++) {
         std::size_t found;
+        
+        // Circle
         found = storage[counter_f].find("circle");
         if (found != std::string::npos) {
-            verif_counter++;
+            check++;
             order_counter++;
-            Circle(order_counter, counter_f, storage);
+            Circle_mass[Circle_counter] = Circle_analysis(order_counter, counter_f, storage);
+            Circle_counter++;
         }
-
+        
+        // Triangle
         found = storage[counter_f].find("triangle");
         if (found != std::string::npos) {
-            verif_counter++;
+            check++;
             order_counter++;
-            Triangle(order_counter, counter_f, storage);
+            Triangle_mass[Triangle_counter] = Triangle_analysis(order_counter, counter_f, storage);
+            Triangle_counter++; 
         }
-
-        if (verif_counter == 0) {
-            printf("\n\n #Error in %d line, «circle» , «triangle»  or "
-                   "«polygon»  not found ",
+        
+        // Error
+        if (check == 0) {
+            printf("\n\n #Error in %d line, «circle» , «triangle» not found ",
                    counter_f + 1);
             std::cout << "\n " << counter_f + 1 << ". " << storage[counter_f]
                       << std::endl;
         }
-        verif_counter = 0;
+        check = 0;
     }
+
+    
 
     in.close();
     std::cout << "\n\n End of programm\n" << std::endl;

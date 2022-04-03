@@ -7,6 +7,9 @@ GEOMETRY = src/libgeom/geometry.cpp
 
 COMPILE = obj/geom/main.o obj/libgeom/libgeom.o 
 
+all: geometry
+	./geometry
+
 geometry: $(COMPILE)
 	g++ $(COMPILE) -o $@
 
