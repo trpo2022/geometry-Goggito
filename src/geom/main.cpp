@@ -79,14 +79,18 @@ int main()
 
     // Output of results
     int fig_counter = Triangle_counter + Circle_counter + 1;
-    Triangle_counter = Circle_counter = 0;
+    int Triangle_pr = 0;
+    int Circle_pr = 0;
     for (int counter_f = 1; counter_f < fig_counter; counter_f++) {
-        if (Triangle_mass[Triangle_counter].Order == counter_f) {
-            Triangle_print(Triangle_mass[Triangle_counter], storage);
-            Triangle_counter++;
-        } else if (Circle_mass[Circle_counter].Order == counter_f) {
-            Circle_print(Circle_mass[Circle_counter], storage);
-            Circle_counter++;
+        if (Triangle_mass[Triangle_pr].Order == counter_f) {
+            Triangle_print(Triangle_mass[Triangle_pr], storage);
+            printf("      intersects:\n");
+            Triangle_intersec(Triangle_mass[Triangle_pr], Circle_mass, Circle_counter, Triangle_mass, Triangle_counter);
+            Triangle_pr++;
+        } else if (Circle_mass[Circle_pr].Order == counter_f) {
+            Circle_print(Circle_mass[Circle_pr], storage);
+            Circle_intersec(Circle_mass[Circle_pr], Circle_mass, Circle_counter, Triangle_mass, Triangle_counter);
+            Circle_pr++;
         }
     }
 

@@ -12,6 +12,7 @@ using namespace std;
 
 const double Pi = 3.1415;
 
+// Analisis function
 Point Point_analysis(int string, int& lfound, std::string storage[])
 {
     Point P;
@@ -100,16 +101,124 @@ Triangle Triangle_analysis(int order, int string, std::string storage[])
     return T;
 }
 
+// Intersectio function
+int Intersec_T(Point A, Point B, Point C, Point D)
+{
+    float Ua = ((D.x - C.x) * (A.y - C.y) - (D.y - C.y) * (A.x - C.x))
+            / ((D.y - C.y) * (B.x - A.x) - (D.x - C.x) * (B.y - A.y));
+    float Ub = ((B.x - A.x) * (A.y - C.y) - (B.y - A.y) * (A.x - C.x))
+            / ((D.y - C.y) * (B.x - A.x) - (D.x - C.x) * (B.y - A.y));
 
-void Circle_intersec(Circle C, Circle CM[], Triangle TM[]){
+    if ((0 <= Ua && Ua <= 1) && (0 <= Ub && Ub <= 1)) {
+        // double xua = A.x + Ua * (B.x - A.x);
+        // double yua = A.y + Ua * (B.y - A.y);
+        // printf("\n #[ x=%.2f  y=%.2f ]", xua, yua);
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int Intersec_C(Point A, Point B, Point C, float r)
+{
+    float D;
+    float At = pow(A.x - B.x, 2) + pow(A.y + B.y, 2);
+    float Bt = pow(A.x - C.x, 2) + pow(A.y + C.y, 2);
+    float Ct = pow(C.x - B.x, 2) + pow(C.y + B.y, 2);
+    float S = abs((A.x - C.x) * (B.x - C.x) - (B.x - C.x) * (A.y - C.y)) / 2;
+    float h = 2 * S / sqrt(Ct);
+    if ((At + Ct < Bt) || (Bt + Ct < At)) {
+        if (At < Bt) {
+            D = sqrt(At);
+        } else {
+            D = sqrt(Bt);
+        }
+    } else {
+        D = h;
+    }
     
+    if (r >= D) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
-void Triangle_intersec(Triangle T, Circle CM[], Triangle TM[]){
-
+void Circle_intersec(Circle C, Circle CM[], int s_CM, Triangle TM[], int s_TM)
+{
+    for (int counter = 0; counter < s_CM; counter++) {
+        if (C.Order != CM[counter].Order) {
+            Circle X = CM[counter];
+            float h = sqrt(pow(abs(C.Center.y - X.Center.y),2) + pow(abs(C.Center.x - X.Center.y),2));
+            float d = (C.r + X.r);
+            if(h <= d){
+                std::cout << "          " << X.Order << ". circle"
+                          << std::endl;
+                break;
+            }
+        }
+    }
+    for (int counter = 0; counter < s_TM; counter++) {
+        int cheak[3];
+        Triangle X = TM[counter];
+        cheak[0] = Intersec_C(X.A, X.B, C.Center, C.r);
+        cheak[1] = Intersec_C(X.B, X.C, C.Center, C.r);
+        cheak[2] = Intersec_C(X.C, X.A, C.Center, C.r);
+        for (int i = 0; i < 3; i++) {
+            if (cheak[i] == 1) {
+                std::cout << "          " << X.Order << ". triangle"
+                          << std::endl;
+                break;
+            }
+        }
+    }
 }
 
+void Triangle_intersec(Triangle T, Circle CM[], int s_CM, Triangle TM[], int s_TM)
+{
+    for (int counter = 0; counter < s_CM; counter++) {
+        int cheak[3];
+        Circle X = CM[counter];
+        cheak[0] = Intersec_C(T.A, T.B, X.Center, X.r);
+        cheak[1] = Intersec_C(T.B, T.C, X.Center, X.r);
+        cheak[2] = Intersec_C(T.C, T.A, X.Center, X.r);
+        for (int i = 0; i < 3; i++) {
+            if (cheak[i] == 1) {
+                std::cout << "          " << X.Order << ". circle"
+                          << std::endl;
+                break;
+            }
+        }
+    }
 
+    for (int counter = 0; counter < s_TM; counter++) {
+        if (T.Order != TM[counter].Order) {
+            int cheak[9];
+            Triangle X = TM[counter];
+            cheak[0] = Intersec_T(T.A, T.B, X.A, X.B);
+            cheak[1] = Intersec_T(T.A, T.B, X.B, X.C);
+            cheak[2] = Intersec_T(T.A, T.B, X.C, X.A);
+
+            cheak[3] = Intersec_T(T.B, T.C, X.A, X.B);
+            cheak[4] = Intersec_T(T.B, T.C, X.B, X.C);
+            cheak[5] = Intersec_T(T.B, T.C, X.C, X.A);
+
+            cheak[6] = Intersec_T(T.C, T.A, X.A, X.B);
+            cheak[7] = Intersec_T(T.C, T.A, X.B, X.C);
+            cheak[8] = Intersec_T(T.C, T.A, X.C, X.A);
+
+            for (int i = 0; i < 9; i++) {
+                if (cheak[i] == 1) {
+                    std::cout << "          " << X.Order << ". triangle"
+                              << std::endl;
+                    break;
+                }
+            }
+        }
+    }
+}
+
+// Printing function 
 void Circle_print(Circle C, std::string storage[])
 {
     std::cout << "\n " << C.Order << ". " << storage[C.Order - 1]
