@@ -40,27 +40,30 @@ int main()
     int order_counter = 0;
     int Circle_counter = 0;
     int Triangle_counter = 0;
+
     for (int counter_f = 0; counter_f < counter; counter_f++) {
         std::size_t found;
-        
+
         // Circle
         found = storage[counter_f].find("circle");
         if (found != std::string::npos) {
             check++;
             order_counter++;
-            Circle_mass[Circle_counter] = Circle_analysis(order_counter, counter_f, storage);
+            Circle_mass[Circle_counter]
+                    = Circle_analysis(order_counter, counter_f, storage);
             Circle_counter++;
         }
-        
+
         // Triangle
         found = storage[counter_f].find("triangle");
         if (found != std::string::npos) {
             check++;
             order_counter++;
-            Triangle_mass[Triangle_counter] = Triangle_analysis(order_counter, counter_f, storage);
-            Triangle_counter++; 
+            Triangle_mass[Triangle_counter]
+                    = Triangle_analysis(order_counter, counter_f, storage);
+            Triangle_counter++;
         }
-        
+
         // Error
         if (check == 0) {
             printf("\n\n #Error in %d line, «circle» , «triangle» not found ",
@@ -71,7 +74,21 @@ int main()
         check = 0;
     }
 
+    // Checking intersections
     
+
+    // Output of results
+    int fig_counter = Triangle_counter + Circle_counter + 1;
+    Triangle_counter = Circle_counter = 0;
+    for (int counter_f = 1; counter_f < fig_counter; counter_f++) {
+        if (Triangle_mass[Triangle_counter].Order == counter_f) {
+            Triangle_print(Triangle_mass[Triangle_counter], storage);
+            Triangle_counter++;
+        } else if (Circle_mass[Circle_counter].Order == counter_f) {
+            Circle_print(Circle_mass[Circle_counter], storage);
+            Circle_counter++;
+        }
+    }
 
     in.close();
     std::cout << "\n\n End of programm\n" << std::endl;

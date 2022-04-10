@@ -57,10 +57,11 @@ Circle Circle_analysis(int order, int string, std::string storage[])
 
     found = x.find(",");
     if (found != std::string::npos) {
-        l_number = x.find_first_of(numbers);
+        l_number = x.find_first_of(numbers, found);
         r_number = x.find_last_of(numbers);
         rezfound = r_number - l_number + 1;
         str_r.append(x, l_number, rezfound);
+
         C.r = atof(str_r.c_str());
 
         C.S = Pi * pow(C.r, 2);
@@ -98,6 +99,16 @@ Triangle Triangle_analysis(int order, int string, std::string storage[])
     T.P = AB + BC + CA;
     return T;
 }
+
+
+void Circle_intersec(Circle C, Circle CM[], Triangle TM[]){
+    
+}
+
+void Triangle_intersec(Triangle T, Circle CM[], Triangle TM[]){
+
+}
+
 
 void Circle_print(Circle C, std::string storage[])
 {
