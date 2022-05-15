@@ -5,7 +5,7 @@ FILEFLAG = -I src
 MAIN = src/geom/main.cpp
 GEOMETRY = src/libgeom/geometry.cpp
 
-COMPILE = obj/geom/main.o obj/libgeom/libgeom.o 
+COMPILE = obj/src/geom/main.o obj/src/libgeom/libgeom.o 
 
 all: geometry
 	./geometry
