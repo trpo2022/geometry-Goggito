@@ -123,9 +123,6 @@ int Intersec_T(Point A, Point B, Point C, Point D)
             / ((D.y - C.y) * (B.x - A.x) - (D.x - C.x) * (B.y - A.y));
 
     if ((0 <= Ua && Ua <= 1) && (0 <= Ub && Ub <= 1)) {
-        // double xua = A.x + Ua * (B.x - A.x);
-        // double yua = A.y + Ua * (B.y - A.y);
-        // printf("\n #[ x=%.2f  y=%.2f ]", xua, yua);
         return 1;
     } else {
         return 0;
