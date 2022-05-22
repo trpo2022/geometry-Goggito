@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun May 22 00:25:02 2022
+# Make data base, printed on Sun May 22 11:49:18 2022
 
 # Variables
 
@@ -25,7 +25,6 @@ XDG_SESSION_CLASS = user
 # environment
 SNAP_COMMON = /var/snap/code/common
 # environment
- 
 XDG_SESSION_TYPE = x11
 # makefile (from 'Makefile', line 23)
 APP_SOURCES = $(shell find $(SRC_DIR)/$(APP_NAME) -name '*.$(SRC_EXT)')
@@ -47,6 +46,7 @@ XMODIFIERS = @im=ibus
 CURDIR := /home/maxim/geometry-Goggito
 # makefile
 SHELL = /bin/sh
+ 
 # environment
 SNAP_DATA = /var/snap/code/97
 # environment
@@ -56,7 +56,7 @@ APP_OBJECTS = $(APP_SOURCES:$(SRC_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(SRC_DIR)/%.o)
 # makefile (from 'Makefile', line 5)
 TEST_NAME = test
 # environment
-JOURNAL_STREAM = 8:30618
+JOURNAL_STREAM = 8:33202
 # makefile (from 'Makefile', line 7)
 CFLAGS = -Wall -Wextra -Werror
 # environment
@@ -88,7 +88,7 @@ _ = /snap/code/97/usr/share/code/code
 # makefile (from 'Makefile', line 8)
 CPPFLAGS = -I src -MP -MMD
 # environment
-MANAGERPID = 911
+MANAGERPID = 922
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -104,7 +104,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/maxim-VirtualBox:@/tmp/.ICE-unix/1409,unix/maxim-VirtualBox:/tmp/.ICE-unix/1409
+SESSION_MANAGER = local/maxim-VirtualBox:@/tmp/.ICE-unix/1420,unix/maxim-VirtualBox:/tmp/.ICE-unix/1420
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -124,7 +124,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = efae796bc4634b96b2788d035778ed2c
+INVOCATION_ID = 9bf6292fbb564cc7a47a2add730fd93f
 # makefile (from 'Makefile', line 9)
 LDFLAGS = 
 # environment
@@ -142,7 +142,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2307
+GIO_LAUNCHED_DESKTOP_FILE_PID = 1882
 # automatic
 %F = $(notdir $%)
 # environment
@@ -158,7 +158,7 @@ PWD = /home/maxim/geometry-Goggito
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1359
+SSH_AGENT_PID = 1272
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -178,8 +178,7 @@ VSCODE_CODE_CACHE_PATH = /home/maxim/.config/Code/CachedData/c3511e6c69bb39013c4
 # environment
 LOGNAME = maxim
 # environment
- 
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
@@ -213,7 +212,7 @@ CC = g++
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-ac82d271-be27-4207-9303-024cb2b87f66.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8d5f7cd0-470a-4b32-b69d-bc6d655b1a4e.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -258,7 +257,6 @@ APP_NAME = geom
 QT_ACCESSIBILITY = 1
 # makefile (from 'Makefile', line 18)
 TEST_PATH = $(BIN_DIR)/$(TEST_DIR)
- 
 # 'override' directive
 .SHELLSTATUS := 0
 # default
@@ -300,10 +298,9 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2363
+VSCODE_PID = 2306
 # variable set hash-table stats:
- 
-# Load=144/1024=14%, Rehash=0, Collisions=24/313=8%
+# Load=144/1024=14%, Rehash=0, Collisions=24/317=8%
 
 # Pattern-specific Variable Values
 
@@ -312,29 +309,30 @@ VSCODE_PID = 2363
 # Directories
 
 # src/geom (device 2053, inode 415554): No files, no impossibilities so far.
-# . (device 2053, inode 393317): 15 files, no impossibilities.
+# . (device 2053, inode 393317): 16 files, no impossibilities.
 # src/libgeom (device 2053, inode 415556): No files, no impossibilities so far.
 
-# 15 files, no impossibilities in 3 directories.
+# 16 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
 obj/%.o: %.cpp
-#  recipe to execute (from 'Makefile', line 47):
+#  recipe to execute (from 'Makefile', line 48):
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -I thirdparty $< -o $@ -lm
 	
 
 # 1 implicit rules, 0 (0.0%) terminal.
 
+ 
 # Files
 
 obj/src/geom/main.o: src/geom/main.cpp src/geom/main.cpp src/libgeom/geometry.h src/geom/main.cpp src/libgeom/geometry.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/geom/main'
-#  Last modified 2022-05-22 00:05:46.804766183
+#  Last modified 2022-05-22 11:47:43.688392689
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 47):
+#  recipe to execute (from 'Makefile', line 48):
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -I thirdparty $< -o $@ -lm
 	
 
@@ -342,24 +340,44 @@ bin/test: obj/test/geometry_test.o obj/test/main.o obj/src/libgeom/libgeom.a
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 56):
+#  recipe to execute (from 'Makefile', line 57):
 	$(CC) $(CFLAGS) -I thirdparty $^ -o $@ $(LDFLAGS) $(LDLIBS) -lm
 
 obj/src/libgeom/libgeom.a: obj/src/libgeom/geometry.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-22 00:05:47.348761764
+#  Last modified 2022-05-22 11:47:44.236393027
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 44):
+#  recipe to execute (from 'Makefile', line 45):
 	ar rcs $@ $^
- 
 
 all: bin/geom
 #  Command line target.
-#  Implicit rule search has been done.
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := bin/geom
+# automatic
+# | := 
+# automatic
+# < := bin/geom
+# automatic
+# ^ := bin/geom
+# automatic
+# ? := bin/geom
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  recipe to execute (from 'Makefile', line 37):
+	./bin/$(APP_NAME)
 
 # Not a target:
 test/geometry_test.cpp:
@@ -374,16 +392,22 @@ test/geometry_test.cpp:
 
 bin/geom: obj/src/geom/main.o obj/src/libgeom/libgeom.a
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-22 00:11:34.17675448
+#  Last modified 2022-05-22 11:47:44.504393188
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-22 00:24:50.033846172
+#  Last modified 2022-05-22 11:49:01.624412236
 #  File has been updated.
 #  Successfully updated.
 
@@ -392,39 +416,38 @@ test: bin/test
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 50):
+#  recipe to execute (from 'Makefile', line 51):
 	./bin/test
 
 src/libgeom/geometry.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-19 13:10:24.398032699
+#  Last modified 2022-05-22 00:42:24.736820751
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 obj/src/libgeom/geometry.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-22 00:05:47.296762186
+#  Last modified 2022-05-22 11:47:44.156392978
 #  File has been updated.
 #  Successfully updated.
 
 thirdparty/ctest.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
 obj/test/geometry_test.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-22 00:24:18.890112725
+#  Last modified 2022-05-22 11:47:50.6803966
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/libgeom/geometry.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-19 12:59:56.787091454
+#  Last modified 2022-05-22 01:20:48.653105571
 #  File has been updated.
 #  Successfully updated.
 
@@ -440,13 +463,14 @@ test/main.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 obj/src/libgeom/geometry.o: src/libgeom/geometry.cpp src/libgeom/geometry.cpp src/libgeom/geometry.h src/libgeom/geometry.cpp src/libgeom/geometry.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/libgeom/geometry'
-#  Last modified 2022-05-22 00:05:47.30476212
+#  Last modified 2022-05-22 11:47:44.168392986
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 47):
+#  recipe to execute (from 'Makefile', line 48):
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -I thirdparty $< -o $@ -lm
 	
 
@@ -455,7 +479,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 61):
+#  recipe to execute (from 'Makefile', line 62):
 	$(RM) $(APP_PATH) $(TEST_PATH) $(LIB_PATH)
 	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
 	find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;
@@ -464,12 +488,11 @@ obj/test/geometry_test.o: test/geometry_test.cpp src/libgeom/geometry.h thirdpar
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 
 # Not a target:
 obj/src/geom/main.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-22 00:05:46.660767354
+#  Last modified 2022-05-22 11:47:43.528392589
 #  File has been updated.
 #  Successfully updated.
 
@@ -493,19 +516,19 @@ obj/test/main.d:
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=24/1024=2%, Rehash=0, Collisions=3/94=3%
+# Load=24/1024=2%, Rehash=0, Collisions=3/95=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 45 / storage = 585 B / avg = 13 B
-# current buf: size = 8162 B / used = 585 B / count = 45 / avg = 13 B
+# strcache buffers: 1 (0) / strings = 46 / storage = 592 B / avg = 12 B
+# current buf: size = 8162 B / used = 592 B / count = 46 / avg = 12 B
 
-# strcache performance: lookups = 128 / hit rate = 64%
+# strcache performance: lookups = 130 / hit rate = 64%
 # hash-table stats:
-# Load=45/8192=1%, Rehash=0, Collisions=6/128=5%
-# Finished Make data base on Sun May 22 00:25:02 2022
+# Load=46/8192=1%, Rehash=0, Collisions=6/130=5%
+# Finished Make data base on Sun May 22 11:49:18 2022
 
  

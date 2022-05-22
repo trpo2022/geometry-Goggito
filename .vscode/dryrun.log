@@ -1,6 +1,6 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/maxim/geometry-Goggito'
  
-make: Nothing to be done for 'all'.
+./bin/geom
 make: Leaving directory '/home/maxim/geometry-Goggito'
  

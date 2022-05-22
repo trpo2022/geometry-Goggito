@@ -34,6 +34,7 @@ DEPS = $(APP_OBJECTS:.o=.d) $(LIB_OBJECTS:.o=.d) $(TEST_OBJECTS:.o=.d)
 .PHONY: test clean
 
 all: $(APP_PATH)
+	./bin/$(APP_NAME)
 
 -include $(DEPS)
 

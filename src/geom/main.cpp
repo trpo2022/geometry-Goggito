@@ -22,8 +22,9 @@ int main()
 
     // Open file
     std::cout << "\n The program accepts format files as input .wkt!";
-    std::cout << "\n Enter the full file name: ";
-    std::cin >> file_name;
+    //std::cout << "\n Enter the full file name: ";
+    //std::cin >> file_name;
+    file_name = "wkt.wkt";
 
     std::ifstream in(file_name);
     if (in.is_open()) {
