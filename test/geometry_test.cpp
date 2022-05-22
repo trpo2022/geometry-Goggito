@@ -5,29 +5,30 @@
 #include <stdlib.h>
 #include <string.h>
 
-CTEST(figure, circle_s){
+CTEST(figure, circle_s)
+{
     double r = 3;
-    
+
     double result = C_S(r);
-    
+
     double expected = 28.274334;
 
-
     ASSERT_DBL_NEAR_TOL(expected, result, 1e-3);
 }
 
-CTEST(figure, circle_p){
+CTEST(figure, circle_p)
+{
     double r = 3;
-    
+
     double result = C_P(r);
-    
+
     double expected = 18.84955592153876;
 
-
     ASSERT_DBL_NEAR_TOL(expected, result, 1e-3);
 }
 
-CTEST(figure, point_analis){
+CTEST(figure, point_analis)
+{
     int string = 0;
     int lfound = 0;
     std::string storage[] = {"triangle((-3.0 -2, -1 0.0, -3.0 2.0, -3 -2))"};
@@ -42,11 +43,12 @@ CTEST(figure, point_analis){
     ASSERT_DBL_NEAR_TOL(P_exp.x + P_exp.y, P.x + P.y, 1e-3);
 }
 
-CTEST(figure, test_circle_analysis){
+CTEST(figure, test_circle_analysis)
+{
     int string = 0;
     int order = 0;
     std::string storage[] = {"circle(0 0, 1.5)"};
-    
+
     Circle C;
     C = Circle_analysis(order, string, storage);
 
@@ -54,18 +56,18 @@ CTEST(figure, test_circle_analysis){
     C_exp.r = 1.5;
     C_exp.Center.x = 0;
     C_exp.Center.y = 0;
-    
 
     ASSERT_DBL_NEAR_TOL(C_exp.r, C.r, 1e-3);
     ASSERT_DBL_NEAR_TOL(C_exp.Center.x, C.Center.x, 1e-3);
     ASSERT_DBL_NEAR_TOL(C_exp.Center.y, C.Center.y, 1e-3);
 }
 
-CTEST(figure, test_triangle_analysis){
+CTEST(figure, test_triangle_analysis)
+{
     int string = 0;
     int order = 0;
     std::string storage[] = {"triangle((3 -2.0, 3.0 2, 1.0 0, 3.0 -2))"};
-    
+
     Triangle T;
     T = Triangle_analysis(order, string, storage);
 
@@ -87,5 +89,4 @@ CTEST(figure, test_triangle_analysis){
 
     ASSERT_DBL_NEAR_TOL(T_exp.C.x, T.C.x, 1e-3);
     ASSERT_DBL_NEAR_TOL(T_exp.C.y, T.C.y, 1e-3);
-
 }
